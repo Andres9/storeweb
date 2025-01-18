@@ -1,165 +1,211 @@
-
 <?php
+
 $servidor = Ruta::ctrRutaServidor();
+
 ?>
 
+<!--=====================================
+TOP
+======================================-->
 
 <div class="container-fluid barraSuperior" id="top">
-    <div class="container">
-        <div class="row">
-            <!-- SOCIAL -->
-            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 social">
-                <ul>
+	
+	<div class="container">
+		
+		<div class="row">
+	
+			<!--=====================================
+			SOCIAL
+			======================================-->
 
-                    <?php
-                    $social = ControladorPlantilla::ctrEstiloPlantilla();
+			<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 social">
+				
+				<ul>	
 
+					<?php
 
-                    $jsonRedesSociales = json_decode($social["redesSociales"], true);
+					$social = ControladorPlantilla::ctrEstiloPlantilla();
 
-                    foreach ($jsonRedesSociales as $key => $value) {
+					$jsonRedesSociales = json_decode($social["redesSociales"],true);		
 
-                        echo '<li>
-								<a href="' . $value["url"] . '" target="_blank">
-									<i class="fa ' . $value["red"] . ' redSocial ' . $value["estilo"] . '" aria-hidden="true"></i>
+					foreach ($jsonRedesSociales as $key => $value) {
+
+						echo '<li>
+								<a href="'.$value["url"].'" target="_blank">
+									<i class="fa '.$value["red"].' redSocial '.$value["estilo"].'" aria-hidden="true"></i>
 								</a>
 							</li>';
-                    }
-                    ?>
-                </ul>
-            </div>
-            <!--=====================================
-            REGISTRO
-            ======================================-->
+					}
 
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 registro">
+					?>
+			
+				</ul>
 
-                <ul>
+			</div>
 
-                    <li><a href="#modalIngreso" data-toggle="modal">Ingresar</a></li>
-                    <li>|</li>
-                    <li><a href="#modalRegistro" data-toggle="modal">Crear una cuenta</a></li>
+			<!--=====================================
+			REGISTRO
+			======================================-->
 
-                </ul>
+			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 registro">
+				
+				<ul>
+					
+					<li><a href="#modalIngreso" data-toggle="modal">Ingresar</a></li>
+					<li>|</li>
+					<li><a href="#modalRegistro" data-toggle="modal">Crear una cuenta</a></li>
 
-            </div>
-        </div>
-    </div>
+				</ul>
+
+			</div>	
+
+		</div>	
+
+	</div>
+
 </div>
 
-<!-- HEADER -->
+<!--=====================================
+HEADER
+======================================-->
 
 <header class="container-fluid">
-    <div class="container">
-        <div class="row" id="cabezote">
-            <!-- LOGOTIPO -->
-            <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="logotipo">
+	
+	<div class="container">
+		
+		<div class="row" id="cabezote">
 
-                <a href="#">
+			<!--=====================================
+			LOGOTIPO
+			======================================-->
+			
+			<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="logotipo">
+				
+				<a href="#">
+						
+					<img src="<?php echo $servidor.$social["logo"]; ?>" class="img-responsive">
 
-                    <img src="<?php echo $servidor.$social["logo"] ?>" class="img-responsive">
+				</a>
+				
+			</div>
 
-                </a>
+			<!--=====================================
+			BLOQUE CATEGORÍAS Y BUSCADOR
+			======================================-->
 
-            </div>
-            <!-- CATEGORIAS Y BUSCADOR -->
-            <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 backColor" id="btnCategorias">
+			<div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">
+					
+				<!--=====================================
+				BOTÓN CATEGORÍAS
+				======================================-->
 
-                    <p>CATEGORÍAS
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 backColor" id="btnCategorias">
+					
+					<p>CATEGORÍAS
+					
+						<span class="pull-right">
+							<i class="fa fa-bars" aria-hidden="true"></i>
+						</span>
+					
+					</p>
 
-                        <span class="pull-right">
-                            <i class="fa fa-bars" aria-hidden="true"></i>
-                        </span>
+				</div>
 
-                    </p>
+				<!--=====================================
+				BUSCADOR
+				======================================-->
+				
+				<div class="input-group col-lg-8 col-md-8 col-sm-8 col-xs-12" id="buscador">
+					
+					<input type="search" name="buscar" class="form-control" placeholder="Buscar...">	
 
-                </div>
-                <!-- BUSCADOR -->
-                <div class="input-group col-lg-8 col-md-8 col-sm-8 col-xs-12" id="buscador">
+					<span class="input-group-btn">
+						
+						<a href="#">
 
-                    <input type="search" name="buscar" class="form-control" placeholder="Buscar...">
+							<button class="btn btn-default backColor" type="submit">
+								
+								<i class="fa fa-search"></i>
 
-                    <span class="input-group-btn">
+							</button>
 
-                        <a href="#">
+						</a>
 
-                            <button class="btn btn-default backColor" type="submit">
+					</span>
 
-                                <i class="fa fa-search"></i>
+				</div>
+			
+			</div>
 
-                            </button>
+			<!--=====================================
+			CARRITO DE COMPRAS
+			======================================-->
 
-                        </a>
+			<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="carrito">
+				
+				<a href="#">
 
-                    </span>
+					<button class="btn btn-default pull-left backColor"> 
+						
+						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+					
+					</button>
+				
+				</a>	
 
-                </div>
+				<p>TU CESTA <span class="cantidadCesta">3</span> <br> USD $ <span class="sumaCesta">20</span></p>	
 
+			</div>
 
-            </div>
-            <!-- CARRITO -->
+		</div>
 
-            <div class="col-lg-3 col-md-3 col-sm-2 col-xs-12" id="carrito">
+		<!--=====================================
+		CATEGORÍAS
+		======================================-->
 
-                <a href="#">
+		<div class="col-xs-12 backColor" id="categorias">
 
-                    <button class="btn btn-default pull-left backColor">
+			<?php
 
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+				$item = null;
+				$valor = null;
 
-                    </button>
+				$categorias = ControladorProductos::ctrMostrarCategorias($item, $valor);
 
-                </a>
+				foreach ($categorias as $key => $value) {
 
-                <p>TU CESTA <span class="cantidadCesta">3</span> <br> USD $ <span class="sumaCesta">20</span></p>
+					echo '<div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+							
+							<h4>
+								<a href="'.$value["ruta"].'" class="pixelCategorias">'.$value["categoria"].'</a>
+							</h4>
+							
+							<hr>
 
-            </div>
+							<ul>';
 
-        </div>
-        <!-- CATEGORIAS -->
-        <div class="col-xs-12 backColor" id="categorias">
+							$item = "id_categoria";
 
-            <?php
+							$valor = $value["id"];
 
-            $item = null;
-            $valor = null;
-            
-            $categorias = ControladorProductos::ctrMostrarCategorias($item,$valor);
-          
+							$subcategorias = ControladorProductos::ctrMostrarSubCategorias($item, $valor);
+							
+							foreach ($subcategorias as $key => $value) {
+									
+									echo '<li><a href="'.$value["ruta"].'" class="pixelSubCategorias">'.$value["subcategoria"].'</a></li>';
+								}	
+								
+							echo '</ul>
 
-            foreach ($categorias as $key => $value) {
-           
-                echo '
-                       <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+						</div>';
+				}
 
-                <h4>
-                    <a href="'.$value["ruta"].'" class="pixelCategorias">'.$value["categoria"].'</a>
-                </h4>
+			?>	
 
-                <hr>
+		</div>
 
-                <ul>';
+	</div>
 
-                $item = "id_categoria";
-                $valor = $value["id"];
-
-                $subcategorias = ControladorProductos::ctrMostrarSubcategorias($item,$valor);
-
-                foreach ($subcategorias as $key => $value) {
-                    echo ' <li><a href="'.$value["ruta"].'" class="pixelSubCategorias">'.$value["subcategoria"].'</a></li>';
-                }
-
-                echo ' </ul>
-
-            </div>
-                ';
-            }
-            ?>
-
-        </div>
-
-    </div>
-
-    </div>
 </header>
+
+
